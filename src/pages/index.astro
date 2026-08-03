@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Quiz from '../components/Quiz.astro';
+import Hardware from '../components/Hardware.astro';
+import { Content as Manifesto } from '../data/manifesto.md';
+---
+
+<Base ogImage="/og/default.png">
+  <Hero />
+
+  <section id="manifesto" class="section">
+    <div class="wrap narrow">
+      <p class="kicker">the manifesto</p>
+      <div class="prose">
+        <Manifesto />
+      </div>
+      <p class="byline">
+        <a href="https://flaviolivolsi.com">Flavio Li Volsi</a> · 2026
+      </p>
+      <p class="bridge">
+        No reasons left? <a href="#quiz">Find your Linux &darr;</a>
+      </p>
+    </div>
+  </section>
+
+  <Quiz />
+  <Hardware />
+</Base>

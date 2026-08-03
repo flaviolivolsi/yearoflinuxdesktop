@@ -1,0 +1,156 @@
+---
+import Base from '../../layouts/Base.astro';
+import archetypesData from '../../data/quiz/archetypes.json';
+import { personalize } from '../../lib/engine.js';
+
+export function getStaticPaths() {
+  return archetypesData.archetypes.map((a) => ({
+    params: { slug: a.slug },
+    props: { archetype: a },
+  }));
+}
+
+const { archetype } = Astro.props;
+const generic = personalize(archetype, {});
+const title = `${archetype.name} · The Year of the Linux Desktop`;
+const canonical = `https://yearoflinuxdesktop.com/r/${archetype.slug}/`;
+---
+
+<Base
+  title={title}
+  description={archetype.tagline}
+  canonicalPath={`/r/${archetype.slug}/`}
+  ogImage={`/og/${archetype.slug}.png`}
+>
+  <section class="section result-section">
+    <div class="wrap narrow">
+      <p class="kicker">your blueprint</p>
+
+      <div class="tui blueprint" id="result" data-slug={archetype.slug}>
+        <div class="tui-bar">
+          <span>your-blueprint</span>
+          <span>{archetype.name.toLowerCase()}</span>
+        </div>
+        <div class="tui-body">
+          <h1>{archetype.name}</h1>
+          <p class="tagline">{archetype.tagline}</p>
+          <dl class="spec" id="bp-rows">
+            {generic.rows.map((r) => (
+              <div><dt>{r.k}</dt><dd>{r.v}</dd></div>
+            ))}
+          </dl>
+          {archetype.alt && (
+            <p class="alt"><span>second opinion ·</span> {archetype.alt}</p>
+          )}
+          <p class="annoy" id="bp-annoy">
+            <strong>What will still annoy you:</strong> {generic.annoy.join(' ')}
+          </p>
+          <div id="bp-notes" class="notes"></div>
+        </div>
+      </div>
+
+      <div class="prompt-block" id="prompt-block" hidden>
+        <p class="kicker" style="margin: 3rem 0 1rem;">your setup prompt</p>
+        <p class="prompt-lead">
+          Paste this into the LLM of your choice. It contains your hardware, your
+          skill level and your blueprint. The AI walks you through the switch,
+          one step at a time, and debugs with you when something breaks.
+        </p>
+        <textarea
+          id="prompt-text"
+          readonly
+          rows="14"
+          spellcheck="false"
+          aria-label="Your personalized setup prompt"></textarea>
+        <div class="prompt-actions">
+          <button class="btn btn-primary" id="copy-prompt">[ copy your setup prompt ]</button>
+          <a class="btn" href="/#hardware" id="hw-link" hidden>[ you said you need hardware → ]</a>
+        </div>
+      </div>
+
+      <div class="prompt-block" id="generic-cta">
+        <p class="prompt-lead">
+          This is the generic {archetype.name} blueprint.
+          <a href="/#quiz">Take the quiz</a> to personalize it with your hardware, your
+          Windows anchors, your terminal comfort, and to get a copy-paste setup
+          prompt that makes an AI install it with you.
+        </p>
+      </div>
+
+      <p class="result-foot">
+        <a href="/#quiz">↻ take the quiz</a> ·
+        <a href="/#hardware">the hardware</a> ·
+        <a href="/">the manifesto</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import {
+    computeProfile,
+    personalize,
+    buildPrompt,
+    decodeAnswers,
+    rank,
+  } from '../../lib/engine.js';
+  import questionsData from '../../data/quiz/questions.json';
+  import archetypesData from '../../data/quiz/archetypes.json';
+
+  const questions = questionsData.questions;
+  const container = document.getElementById('result');
+  const slug = container?.dataset.slug;
+  const archetype = archetypesData.archetypes.find((a) => a.slug === slug);
+
+  const a = new URLSearchParams(window.location.search).get('a');
+  const answers = decodeAnswers(a, questions.length);
+
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  }
+
+  // Answers must actually produce this page's archetype. A shared or edited
+  // URL whose answers rank differently (including after recalibrations)
+  // redirects to the true winner instead of presenting a false result.
+  if (answers && archetype) {
+    const winner = rank(answers, questions, archetypesData.archetypes).winner;
+    if (winner.slug !== slug) {
+      window.location.replace(`/r/${winner.slug}/?a=${a}`);
+    }
+  }
+
+  if (answers && archetype) {
+    const { axes, gates } = computeProfile(answers, questions);
+    const { rows, annoy, notes } = personalize(archetype, gates);
+
+    document.getElementById('bp-rows').innerHTML = rows
+      .map((r) => `<div><dt>${esc(r.k)}</dt><dd>${esc(r.v)}</dd></div>`)
+      .join('');
+    document.getElementById('bp-annoy').innerHTML =
+      `<strong>What will still annoy you:</strong> ${esc(annoy.join(' '))}`;
+    document.getElementById('bp-notes').innerHTML = notes
+      .map((n) => `<p class="note">↳ ${esc(n)}</p>`)
+      .join('');
+
+    const prompt = buildPrompt(archetype, gates, axes, rows);
+    const ta = document.getElementById('prompt-text');
+    ta.value = prompt;
+    document.getElementById('prompt-block').hidden = false;
+    document.getElementById('generic-cta').hidden = true;
+    if (gates.machine === 'none') {
+      document.getElementById('hw-link').hidden = false;
+    }
+
+    const btn = document.getElementById('copy-prompt');
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(prompt);
+      } catch {
+        ta.select();
+        document.execCommand('copy');
+      }
+      btn.textContent = '[ copied ✓ · now paste it into your AI ]';
+      setTimeout(() => (btn.textContent = '[ copy your setup prompt ]'), 2600);
+    });
+  }
+</script>

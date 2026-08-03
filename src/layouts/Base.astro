@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'The Year of the Linux Desktop',
+  description = 'It never arrives. It never will. It was never going to be a year on a calendar. It arrives one person at a time.',
+  canonicalPath = '/',
+  ogImage,
+} = Astro.props;
+
+const canonical = `https://yearoflinuxdesktop.com${canonicalPath}`;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Flavio Li Volsi" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={`https://yearoflinuxdesktop.com${ogImage}`} />}
+    {ogImage && <meta name="twitter:card" content="summary_large_image" />}
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101310" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f5ef" />
+    <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      // Theme override, read before paint to avoid a flash. 'light' | 'dark',
+      // absent = follow the system. This plus the quiz is ALL the JavaScript.
+      try {
+        const t = localStorage.getItem('theme');
+        if (t) document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <!--
+      Hello, view-source person. You are the target audience.
+
+      Static site. No trackers, no cookies, no fingerprinting, and so far
+      0 KB of JavaScript. The quiz will need some; it will apologize.
+
+      Everything here will be open source, including the quiz weights,
+      which will live in a JSON file you can argue about in a pull request.
+    -->
+    <a class="skip-link" href="#main">skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/"><span class="prompt">$</span> year-of-the-linux-desktop</a>
+        <nav class="site-nav" aria-label="Site">
+          <a href="/#manifesto">manifesto</a>
+          <a href="/#quiz">quiz</a>
+          <a href="https://github.com/flaviolivolsi/yearoflinuxdesktop.com">source</a>
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+            ◐
+          </button>
+        </nav>
+      </div>
+    </header>
+    <script is:inline>
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        const root = document.documentElement;
+        const current =
+          root.dataset.theme ||
+          (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const next = current === 'dark' ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem('theme', next);
+        } catch {}
+      });
+    </script>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>

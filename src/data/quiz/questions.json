@@ -1,0 +1,384 @@
+{
+  "$comment": "The quiz. Axes are 0..1 signals summed across answers, then normalized. Gates are hard facts that modify the result. Disagree with a weight? That is what pull requests are for.",
+  "axes": [
+    "tinker",
+    "term",
+    "fresh",
+    "aes",
+    "kb",
+    "game",
+    "dev",
+    "revive",
+    "repro"
+  ],
+  "questions": [
+    {
+      "id": "machine",
+      "prompt": "What will this run on?",
+      "options": [
+        {
+          "label": "The laptop I already have",
+          "axes": {},
+          "gates": {
+            "machine": "have"
+          }
+        },
+        {
+          "label": "An old machine that deserves a second life",
+          "axes": {
+            "revive": 1,
+            "tinker": 0.2
+          },
+          "gates": {
+            "machine": "old"
+          }
+        },
+        {
+          "label": "I'd buy something new for this",
+          "axes": {},
+          "gates": {
+            "machine": "none"
+          }
+        },
+        {
+          "label": "There is a Steam Deck involved",
+          "axes": {
+            "game": 0.6
+          },
+          "gates": {
+            "machine": "deck"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gpu",
+      "prompt": "Your graphics card situation:",
+      "options": [
+        {
+          "label": "Nvidia",
+          "axes": {},
+          "gates": {
+            "gpu": "nvidia"
+          }
+        },
+        {
+          "label": "AMD or Intel",
+          "axes": {},
+          "gates": {
+            "gpu": "friendly"
+          }
+        },
+        {
+          "label": "Whatever came in the laptop",
+          "axes": {},
+          "gates": {
+            "gpu": "unknown"
+          }
+        },
+        {
+          "label": "No idea, and that's fine",
+          "axes": {},
+          "gates": {
+            "gpu": "unknown"
+          }
+        }
+      ]
+    },
+    {
+      "id": "terminal",
+      "prompt": "The terminal is:",
+      "options": [
+        {
+          "label": "Home",
+          "axes": {
+            "term": 1,
+            "kb": 0.6
+          }
+        },
+        {
+          "label": "A tool I use when needed",
+          "axes": {
+            "term": 0.6
+          }
+        },
+        {
+          "label": "Something I've copy-pasted into",
+          "axes": {
+            "term": 0.3
+          }
+        },
+        {
+          "label": "A black window of fear",
+          "axes": {}
+        }
+      ]
+    },
+    {
+      "id": "wifi",
+      "prompt": "Your Wi-Fi breaks. You:",
+      "options": [
+        {
+          "label": "Take the laptop to a shop",
+          "axes": {}
+        },
+        {
+          "label": "Reboot and pray",
+          "axes": {
+            "tinker": 0.3
+          }
+        },
+        {
+          "label": "Read the logs like a detective novel",
+          "axes": {
+            "tinker": 0.8
+          }
+        },
+        {
+          "label": "I am the reason it broke",
+          "axes": {
+            "tinker": 1,
+            "fresh": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "looks",
+      "prompt": "How much does your desktop's look matter?",
+      "options": [
+        {
+          "label": "It's a tool. I don't decorate hammers",
+          "axes": {}
+        },
+        {
+          "label": "Clean and coherent, then leave me alone",
+          "axes": {
+            "aes": 0.5
+          }
+        },
+        {
+          "label": "I will screenshot it and post it",
+          "axes": {
+            "aes": 1
+          }
+        },
+        {
+          "label": "I want it invisible: keyboard, no chrome",
+          "axes": {
+            "aes": 0.4,
+            "kb": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "updates",
+      "prompt": "Updates should arrive:",
+      "options": [
+        {
+          "label": "Daily. I want everything now",
+          "axes": {
+            "fresh": 1
+          }
+        },
+        {
+          "label": "Weekly-ish, tested by someone braver",
+          "axes": {
+            "fresh": 0.6
+          }
+        },
+        {
+          "label": "Rarely, and they must never break anything",
+          "axes": {
+            "fresh": 0.1
+          }
+        },
+        {
+          "label": "I never want to think about updates",
+          "axes": {}
+        }
+      ]
+    },
+    {
+      "id": "anchor",
+      "prompt": "What still ties you to Windows or macOS?",
+      "options": [
+        {
+          "label": "Nothing. Cut the rope",
+          "axes": {},
+          "gates": {
+            "anchor": "none"
+          }
+        },
+        {
+          "label": "One or two apps I could probably replace",
+          "axes": {},
+          "gates": {
+            "anchor": "some"
+          }
+        },
+        {
+          "label": "Adobe or MS Office, professionally",
+          "axes": {},
+          "gates": {
+            "anchor": "pro"
+          }
+        },
+        {
+          "label": "Competitive games with anticheat",
+          "axes": {
+            "game": 0.5
+          },
+          "gates": {
+            "anchor": "anticheat"
+          }
+        }
+      ]
+    },
+    {
+      "id": "gaming",
+      "prompt": "Gaming on this machine:",
+      "options": [
+        {
+          "label": "Not a thing",
+          "axes": {}
+        },
+        {
+          "label": "Occasional, single-player, cozy",
+          "axes": {
+            "game": 0.5
+          }
+        },
+        {
+          "label": "It's the main event",
+          "axes": {
+            "game": 1
+          }
+        },
+        {
+          "label": "I'm switching BECAUSE of Linux gaming",
+          "axes": {
+            "game": 1,
+            "fresh": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "code",
+      "prompt": "Do you write code?",
+      "options": [
+        {
+          "label": "It's my job",
+          "axes": {
+            "dev": 1,
+            "term": 0.3
+          }
+        },
+        {
+          "label": "Sometimes, for fun or small things",
+          "axes": {
+            "dev": 0.6
+          }
+        },
+        {
+          "label": "No, and I don't plan to",
+          "axes": {}
+        },
+        {
+          "label": "No, but AI is making me curious",
+          "axes": {
+            "dev": 0.2
+          }
+        }
+      ]
+    },
+    {
+      "id": "time",
+      "prompt": "How much time will you give this relationship?",
+      "options": [
+        {
+          "label": "A weekend of joyful fiddling, gladly",
+          "axes": {
+            "tinker": 0.7
+          }
+        },
+        {
+          "label": "One evening. Then it has to just work",
+          "axes": {
+            "tinker": 0.3
+          }
+        },
+        {
+          "label": "One hour. I have a life",
+          "axes": {}
+        },
+        {
+          "label": "I want to be tweaking configs at 2am, happy",
+          "axes": {
+            "tinker": 1,
+            "kb": 0.4,
+            "term": 0.3
+          }
+        }
+      ]
+    },
+    {
+      "id": "windows",
+      "prompt": "Windows on your screen should:",
+      "options": [
+        {
+          "label": "Float around, like every computer since 1995",
+          "axes": {}
+        },
+        {
+          "label": "Snap neatly. I mostly drive with the mouse",
+          "axes": {}
+        },
+        {
+          "label": "Tile themselves. My hands stay on the keyboard",
+          "axes": {
+            "kb": 1,
+            "tinker": 0.3
+          }
+        },
+        {
+          "label": "What windows? Fullscreen and workspaces, always",
+          "axes": {
+            "kb": 0.7
+          }
+        }
+      ]
+    },
+    {
+      "id": "rebuild",
+      "prompt": "If your laptop died tonight:",
+      "options": [
+        {
+          "label": "Catastrophe. Everything lives there",
+          "axes": {}
+        },
+        {
+          "label": "Annoying, but there are backups",
+          "axes": {}
+        },
+        {
+          "label": "Fresh setup running by tomorrow, from my notes and dotfiles",
+          "axes": {
+            "repro": 0.4,
+            "tinker": 0.3
+          }
+        },
+        {
+          "label": "One command rebuilds everything. Files were never only there",
+          "axes": {
+            "repro": 1,
+            "dev": 0.3,
+            "term": 0.3
+          }
+        }
+      ]
+    }
+  ]
+}

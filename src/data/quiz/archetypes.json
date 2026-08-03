@@ -1,0 +1,509 @@
+{
+  "$comment": "Ten archetypes. Each is a coherent, human-verified stack: not a weighted fruit salad. proto = target position on each axis (0..1). weight = how much that axis matters for this archetype. Blueprint copy is warm-tease by design.",
+  "archetypes": [
+    {
+      "slug": "arch-wizard",
+      "name": "xXArchWizardXx",
+      "tagline": "You don't install Arch. You slowly become it.",
+      "proto": {
+        "tinker": 0.95,
+        "term": 0.95,
+        "fresh": 0.9,
+        "aes": 0.45,
+        "kb": 0.85,
+        "game": 0.3,
+        "dev": 0.7,
+        "repro": 0.5
+      },
+      "weight": {
+        "tinker": 2.5,
+        "term": 2,
+        "fresh": 1.5,
+        "kb": 1.5
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "Arch Linux: yes, actually"
+        },
+        {
+          "k": "desktop",
+          "v": "Hyprland, configured from scratch"
+        },
+        {
+          "k": "gaming",
+          "v": "Steam + Proton"
+        },
+        {
+          "k": "escape plan",
+          "v": "Wine, and stubbornness"
+        },
+        {
+          "k": "terminal",
+          "v": "whichever one your dotfiles say"
+        },
+        {
+          "k": "the real deliverable",
+          "v": "your dotfiles repo"
+        }
+      ],
+      "annoy": "You will say \"btw\" unprompted. There is no known cure.",
+      "hardwareNone": "A used ThinkPad, pre-scratched. Buying pristine hardware for this archetype is like buying ironed jeans.",
+      "alt": "Gentoo, if even Arch feels too pre-chewed.",
+      "floor": {
+        "term": 0.35
+      }
+    },
+    {
+      "slug": "rice-farmer",
+      "name": "The Rice Farmer",
+      "tagline": "You will spend four hours making the terminal transparent. Worth it.",
+      "proto": {
+        "tinker": 0.8,
+        "term": 0.6,
+        "fresh": 0.8,
+        "aes": 1,
+        "kb": 0.8,
+        "game": 0.4,
+        "dev": 0.4,
+        "repro": 0.3
+      },
+      "weight": {
+        "aes": 3,
+        "tinker": 1.5,
+        "kb": 1.5
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "CachyOS: Arch, precompiled, guilt-free"
+        },
+        {
+          "k": "desktop",
+          "v": "Hyprland + Waybar"
+        },
+        {
+          "k": "gaming",
+          "v": "Steam + Proton"
+        },
+        {
+          "k": "escape plan",
+          "v": "Bottles, for that one app you won't admit to"
+        },
+        {
+          "k": "terminal",
+          "v": "Ghostty"
+        },
+        {
+          "k": "aesthetics",
+          "v": "you will handle that part yourself"
+        }
+      ],
+      "annoy": "Your own perfectionism. The rice is never done; that is the point.",
+      "hardwareNone": "Framework Laptop 13: repairable, and the screenshots will match the hardware's taste level.",
+      "alt": "EndeavourOS, if you want closer-to-vanilla Arch under the rice.",
+      "floor": {
+        "term": 0.35
+      }
+    },
+    {
+      "slug": "escapee",
+      "name": "The Escapee",
+      "tagline": "You didn't leave Apple. Apple left you, one Tahoe at a time.",
+      "proto": {
+        "tinker": 0.35,
+        "term": 0.45,
+        "fresh": 0.5,
+        "aes": 0.75,
+        "kb": 0.5,
+        "game": 0.2,
+        "dev": 0.6,
+        "repro": 0.2
+      },
+      "weight": {
+        "aes": 2,
+        "dev": 1.5
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "Omarchy: Arch with taste, batteries included"
+        },
+        {
+          "k": "desktop",
+          "v": "Hyprland, pre-themed. Someone with taste already suffered for you"
+        },
+        {
+          "k": "gaming",
+          "v": "Steam + Proton"
+        },
+        {
+          "k": "escape plan",
+          "v": "your web apps never left the browser anyway"
+        },
+        {
+          "k": "terminal",
+          "v": "Ghostty"
+        },
+        {
+          "k": "bonus",
+          "v": "keyboard shortcuts that finally make sense"
+        }
+      ],
+      "annoy": "Two weeks of muscle-memory fights. Cmd is Super now. Breathe.",
+      "hardwareNone": "Framework Laptop 13 Pro: CNC aluminum, 20-hour battery, ships with Linux. The MacBook build quality argument is over.",
+      "alt": "Fedora Workstation, if you would rather have a big-tent default than one person's opinionated setup.",
+      "floor": {
+        "term": 0.15
+      }
+    },
+    {
+      "slug": "civilian",
+      "name": "The Civilian",
+      "tagline": "The computer is an appliance. This one just refuses to show you ads.",
+      "proto": {
+        "tinker": 0.1,
+        "term": 0.1,
+        "fresh": 0.15,
+        "aes": 0.3,
+        "kb": 0.1,
+        "game": 0.2,
+        "dev": 0.05,
+        "repro": 0.05
+      },
+      "weight": {
+        "tinker": 2,
+        "term": 2
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "Linux Mint"
+        },
+        {
+          "k": "desktop",
+          "v": "Cinnamon: looks like the computer you already know"
+        },
+        {
+          "k": "gaming",
+          "v": "Steam + Proton, if it comes to that"
+        },
+        {
+          "k": "escape plan",
+          "v": "LibreOffice + the browser you already live in"
+        },
+        {
+          "k": "terminal",
+          "v": "you will never need to open it (it's there, though)"
+        },
+        {
+          "k": "bonus",
+          "v": "updates that ask politely and mean it"
+        }
+      ],
+      "annoy": "Friends who use Arch will call this boring. They rebuild their audio stack on weekends. You have a life.",
+      "hardwareNone": "A refurbished ThinkPad or a Slimbook: quiet, certified, done.",
+      "alt": "Fedora Workstation, if your laptop is very new and you want the modern stack at the cost of a slightly less familiar desktop."
+    },
+    {
+      "slug": "grandpa",
+      "name": "The Grandpa",
+      "tagline": "It will outlive both of us, and it knows it.",
+      "proto": {
+        "tinker": 0.25,
+        "term": 0.5,
+        "fresh": 0.05,
+        "aes": 0.15,
+        "kb": 0.3,
+        "game": 0.05,
+        "dev": 0.3,
+        "repro": 0.3
+      },
+      "weight": {
+        "fresh": 3,
+        "aes": 1.5
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "Debian Stable"
+        },
+        {
+          "k": "desktop",
+          "v": "Xfce: unchanged since your favorite decade"
+        },
+        {
+          "k": "gaming",
+          "v": "a chess engine, probably"
+        },
+        {
+          "k": "escape plan",
+          "v": "you escaped in 2009 and never looked back"
+        },
+        {
+          "k": "terminal",
+          "v": "bash, unadorned"
+        },
+        {
+          "k": "bonus",
+          "v": "uptime measured in seasons"
+        }
+      ],
+      "annoy": "Your software is two years old. So is your peace of mind. Fair trade.",
+      "hardwareNone": "Any ThinkPad from the last decade. It will match your energy: unglamorous, indestructible.",
+      "alt": "Ubuntu LTS, if you want the biggest support ecosystem and can make peace with snaps."
+    },
+    {
+      "slug": "gamer",
+      "name": "The Gamer",
+      "tagline": "Windows was just a launcher with ads. You're replacing a launcher.",
+      "proto": {
+        "tinker": 0.4,
+        "term": 0.3,
+        "fresh": 0.7,
+        "aes": 0.5,
+        "kb": 0.3,
+        "game": 0.5,
+        "dev": 0.2,
+        "repro": 0.1
+      },
+      "weight": {
+        "game": 3
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "Bazzite: SteamOS energy, desktop body"
+        },
+        {
+          "k": "desktop",
+          "v": "KDE Plasma"
+        },
+        {
+          "k": "gaming",
+          "v": "Steam + Proton + Gamescope. It's the whole point"
+        },
+        {
+          "k": "escape plan",
+          "v": "a small Windows partition for the anticheat holdouts: an airlock, not a home"
+        },
+        {
+          "k": "terminal",
+          "v": "once a year, to paste one Proton flag"
+        },
+        {
+          "k": "bonus",
+          "v": "the controller works before you finish sitting down"
+        }
+      ],
+      "annoy": "That one kernel-anticheat title. Blame its publisher, not the penguin.",
+      "hardwareNone": "A Steam Deck if you travel, a Beelink or Minisforum box with AMD graphics if you don't.",
+      "alt": "CachyOS, if you want to turn the performance knobs yourself.",
+      "floor": {
+        "game": 0.3
+      }
+    },
+    {
+      "slug": "pro",
+      "name": "The Pro",
+      "tagline": "You bill by the hour. The OS should be invisible.",
+      "proto": {
+        "tinker": 0.45,
+        "term": 0.8,
+        "fresh": 0.5,
+        "aes": 0.4,
+        "kb": 0.35,
+        "game": 0.2,
+        "dev": 0.8,
+        "repro": 0.4
+      },
+      "weight": {
+        "dev": 1.8,
+        "term": 1.5,
+        "kb": 1.5
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "Fedora Workstation"
+        },
+        {
+          "k": "desktop",
+          "v": "GNOME: boring on purpose"
+        },
+        {
+          "k": "gaming",
+          "v": "Steam exists here too, after hours"
+        },
+        {
+          "k": "escape plan",
+          "v": "containers ate your Windows needs years ago"
+        },
+        {
+          "k": "terminal",
+          "v": "Ptyxis + toolbox"
+        },
+        {
+          "k": "bonus",
+          "v": "Podman, toolchains, zero drama"
+        }
+      ],
+      "annoy": "GNOME will remove a feature you liked. There is an extension. There is always an extension.",
+      "hardwareNone": "Framework Laptop 13 Pro or a Linux-certified ThinkPad. Warranty, docks, no surprises.",
+      "alt": "Ubuntu LTS, if your employer's tooling assumes it."
+    },
+    {
+      "slug": "monk",
+      "name": "The Suckless Monk",
+      "tagline": "You count RAM megabytes the way others count calories.",
+      "proto": {
+        "tinker": 0.8,
+        "term": 0.9,
+        "fresh": 0.4,
+        "aes": 0.15,
+        "kb": 0.95,
+        "game": 0.05,
+        "dev": 0.6,
+        "repro": 0.5
+      },
+      "weight": {
+        "kb": 3,
+        "aes": 2
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "Void Linux (or Arch, muttering)"
+        },
+        {
+          "k": "desktop",
+          "v": "sway: one config file, zero decoration"
+        },
+        {
+          "k": "gaming",
+          "v": "roguelikes, in the terminal, as intended"
+        },
+        {
+          "k": "escape plan",
+          "v": "you escaped software itself"
+        },
+        {
+          "k": "terminal",
+          "v": "foot"
+        },
+        {
+          "k": "bonus",
+          "v": "a status bar with exactly the four numbers you need"
+        }
+      ],
+      "annoy": "You will spend a weekend removing things that were not hurting you.",
+      "hardwareNone": "A used ThinkPad X-series. Small, matte, silent. Like you.",
+      "alt": "Alpine, if even glibc feels indulgent.",
+      "floor": {
+        "term": 0.35
+      }
+    },
+    {
+      "slug": "declarative",
+      "name": "The Declarative",
+      "tagline": "You will rebuild your entire machine from one file, and you will tell everyone.",
+      "proto": {
+        "tinker": 0.9,
+        "term": 0.9,
+        "fresh": 0.6,
+        "aes": 0.3,
+        "kb": 0.6,
+        "game": 0.1,
+        "dev": 0.9,
+        "repro": 0.95
+      },
+      "weight": {
+        "dev": 2,
+        "tinker": 1.5,
+        "repro": 3
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "NixOS"
+        },
+        {
+          "k": "desktop",
+          "v": "your choice: declared in one file"
+        },
+        {
+          "k": "gaming",
+          "v": "Steam, declared"
+        },
+        {
+          "k": "escape plan",
+          "v": "a Windows VM, declared"
+        },
+        {
+          "k": "terminal",
+          "v": "declared"
+        },
+        {
+          "k": "bonus",
+          "v": "configuration.nix: your entire computer as a text file"
+        }
+      ],
+      "annoy": "The documentation. Everyone says it. Everyone is right.",
+      "hardwareNone": "Anything. That is the point: the config outlives the hardware.",
+      "alt": "Guix, if you would rather declare your universe in Scheme.",
+      "floor": {
+        "term": 0.35
+      }
+    },
+    {
+      "slug": "necromancer",
+      "name": "The Necromancer",
+      "tagline": "That 2014 laptop was never dead. It was waiting.",
+      "proto": {
+        "tinker": 0.5,
+        "term": 0.4,
+        "fresh": 0.2,
+        "aes": 0.2,
+        "kb": 0.3,
+        "game": 0.1,
+        "dev": 0.2,
+        "revive": 1,
+        "repro": 0.15
+      },
+      "weight": {
+        "revive": 2,
+        "dev": 1.5,
+        "game": 1.5
+      },
+      "blueprint": [
+        {
+          "k": "base",
+          "v": "Linux Mint Xfce: or antiX for the truly departed"
+        },
+        {
+          "k": "desktop",
+          "v": "Xfce, light enough to float"
+        },
+        {
+          "k": "gaming",
+          "v": "emulators of consoles this machine once envied"
+        },
+        {
+          "k": "escape plan",
+          "v": "this machine owes Windows nothing anymore"
+        },
+        {
+          "k": "terminal",
+          "v": "htop, open purely to admire the free RAM"
+        },
+        {
+          "k": "bonus",
+          "v": "a battery that suddenly lasts hours again"
+        }
+      ],
+      "annoy": "You will start rescuing other people's old laptops. Your shelf is not ready.",
+      "hardwareNone": "You specifically do not buy hardware. Someone's closet already holds your next machine.",
+      "alt": "Debian + LXQt, if you want to go even lighter than Xfce."
+    }
+  ]
+}
