@@ -82,7 +82,7 @@ The old me would have lost a weekend in forums. Instead, I described the symptom
 
 A problem spanning firmware, kernel, bootloader and power management. My total contribution was describing symptoms and rebooting a few times. In 2008, that is a month of evenings ending with "suspend is broken, just shut it down."
 
-The machine still allows me to understand and control everything, but I no longer need to personally investigate every broken package, configuration conflict or hardware quirk from first principles.
+I can still see and control everything. I just no longer have to investigate everything myself.
 
 An LLM is effectively a permanently available system administrator.
 
@@ -114,15 +114,11 @@ A computer can become an extension of you.
 
 But only when you are allowed to shape it.
 
-With Linux, the operating system can look the way I want, behave the way I want and reflect the way I organize my thoughts. I am not renting somebody else’s idea of a computer. I am building my own.
-
-And when something goes wrong, it is now usually solved in minutes.
+With Linux, the operating system can look the way I want, behave the way I want and reflect the way I organize my thoughts.
 
 There has never been a better time to switch.
 
 You get a computer that you truly own. Not just the aluminium object sitting on your desk, but the system itself. You can inspect it, modify it, remove the parts you hate and replace them with better ones. Make it minimal or extravagant, keyboard-driven or mouse-driven, beautiful or aggressively utilitarian.
-
-And it cannot be ruined by a single company deciding that you need more advertising, more surveillance, more subscriptions or fewer choices.
 
 Microsoft can make Windows worse.
 
@@ -150,7 +146,7 @@ And when a single company's upgrade policy misfires, the numbers get absurd. Win
 
 AI sharpens all of this, in both directions. I told you it erased Linux's greatest disadvantage. Here is the other half: it also raised the price of a closed operating system. An AI assistant is only useful if it can see what you are doing. Your screen, your files, your context. On a closed OS, that sight belongs to the vendor by default. On Linux, you can run the models on your own hardware, give them access to everything, and they answer to exactly one person. If an AI is going to have eyes on your whole life, you had better own the eyes.
 
-Linux does not belong to a CEO, a board or a trillion-dollar company trying to extract another percentage point of revenue from the way you open a file. It belongs to everyone. And the more people adopt it, the stronger it becomes: more hardware support, more software, more contributors, more commercial pressure to stop pretending that only two desktop operating systems exist.
+Linux does not belong to a CEO, a board or a trillion-dollar company trying to extract another percentage point of revenue from the way you open a file. It belongs to everyone, and every new user makes it stronger: one more reason for hardware makers to care, for software to show up, and for the industry to stop pretending that only two desktop operating systems exist.
 
 Even the cultural tide is shifting.
 
