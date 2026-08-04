@@ -439,6 +439,66 @@ code {
   line-height: 1.6;
 }
 
+/* the honest objections card */
+.jump-card {
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 1.8rem 1.9rem;
+  margin-top: 3.5rem;
+  font-size: 0.95em;
+}
+
+.jump-title {
+  font-family: var(--serif);
+  font-size: 1.45em;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+}
+
+.jump-sub {
+  font-family: var(--mono);
+  font-size: 0.8em;
+  color: var(--muted);
+  margin: 0 0 1.6rem;
+}
+
+.jump-list {
+  margin: 0;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.jump-list dt {
+  font-family: var(--mono);
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.jump-list dt::before {
+  content: '" ';
+  opacity: 0.6;
+}
+
+.jump-list dt::after {
+  content: ' "';
+  opacity: 0.6;
+}
+
+.jump-list dd {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.jump-close {
+  border-top: 1px dashed var(--line);
+  margin: 1.6rem 0 0;
+  padding-top: 1.4rem;
+  line-height: 1.7;
+}
+
 .byline {
   font-family: var(--mono);
   font-size: 0.9rem;
