@@ -42,7 +42,7 @@ const archetypes = archetypesData.archetypes;
     </p>
 
     <p class="quiz-note">
-      Impatient? The ten archetypes:
+      Impatient? The ten archetypes:{' '}
       {archetypes.map((a, i) => (
         <span><a href={`/r/${a.slug}/`}>{a.name}</a>{i < archetypes.length - 1 ? ' · ' : ''}</span>
       ))}
