@@ -78,7 +78,7 @@ One example, straight from the logs I keep of everything the AI changes on my sy
 
 My laptop used to have a recurring problem. Every so often, after I closed the lid and put it in my backpack, instead of sleeping it would keep quietly drawing power, overheating in the bag until it crashed. I would arrive somewhere, pull out a worryingly hot machine, and be greeted by a crash screen.
 
-The old me would have lost a weekend in forums. Instead, I described the symptoms and let the AI dig. It read the system logs, discovered that the laptop was only pretending to sleep, and reconfigured it to power off safely on its own instead. It even traced part of the problem to a bug in Lenovo's firmware and worked around it.
+The old me would have lost a weekend in forums. Instead, I described the symptoms and let the AI dig. It read the system logs, discovered that the laptop was only pretending to sleep, and set it up so that after half an hour in the bag it saves everything and switches off completely, then picks up exactly where I left it. It even traced part of the problem to a bug in Lenovo's firmware and worked around it.
 
 A problem spanning firmware, kernel, bootloader and power management. My total contribution was describing symptoms and rebooting a few times. In 2008, that is a month of evenings ending with "suspend is broken, just shut it down."
 
