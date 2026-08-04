@@ -17,9 +17,10 @@
       ticking = false;
       const rect = prose.getBoundingClientRect();
       const winH = window.innerHeight;
-      const total = rect.height;
-      const read = Math.min(Math.max(winH - rect.top, 0), total);
-      const pct = total > 0 ? read / total : 0;
+      // 0% when the essay's top reaches the top of the screen (reading
+      // begins), 100% when its last line scrolls into view (reading ends).
+      const denom = rect.height - winH;
+      const pct = denom > 0 ? Math.min(Math.max(-rect.top / denom, 0), 1) : 1;
 
       const inView = rect.top < winH * 0.75 && rect.bottom > winH * 0.35;
       el.hidden = !inView;
