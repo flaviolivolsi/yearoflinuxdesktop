@@ -42,6 +42,11 @@ The performance, battery life and efficiency were so far ahead of almost everyth
 
 But eventually I could no longer tolerate macOS.
 
+<figure class="meme">
+  <img src="/dont-want-to-play.png" alt="Toy Story meme: Andy dropping Woody, captioned 'I don't want to play with you anymore'" loading="lazy" width="680" height="430" />
+  <figcaption>me, with every computer, every couple of years</figcaption>
+</figure>
+
 The problem was not one catastrophic flaw. It was death by a thousand papercuts.
 
 macOS constantly feels like an operating system that is trying to stop you from using your computer incorrectly, where “incorrectly” means differently from how Apple imagined it.
