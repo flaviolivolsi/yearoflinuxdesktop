@@ -43,7 +43,7 @@ The performance, battery life and efficiency were so far ahead of almost everyth
 But eventually I could no longer tolerate macOS.
 
 <figure class="meme">
-  <img src="/dont-want-to-play.png" alt="Toy Story meme: Andy dropping Woody, captioned 'I don't want to play with you anymore'" loading="lazy" width="680" height="430" />
+  <img src="/dont-want-to-play.jpg" alt="Toy Story meme: Andy dropping Woody, captioned 'I don't want to play with you anymore'" loading="lazy" width="960" height="650" />
   <figcaption>me, with every computer, every couple of years</figcaption>
 </figure>
 
