@@ -76,7 +76,7 @@ Now I can show Claude Code an error, describe what is happening and let it inspe
 
 One example, straight from the logs I keep of everything the AI changes on my system.
 
-A few months ago my laptop developed a genuinely nasty habit. I would close the lid, put it in my backpack, and instead of sleeping it kept quietly drawing power, overheating in the bag until the kernel panicked. I would arrive somewhere, pull out a worryingly hot machine, and be greeted by a crash screen.
+My laptop used to have a recurring problem. Every so often, after I closed the lid and put it in my backpack, instead of sleeping it would keep quietly drawing power, overheating in the bag until it crashed. I would arrive somewhere, pull out a worryingly hot machine, and be greeted by a crash screen.
 
 The old me would have lost a weekend in forums. Instead, I described the symptoms and let the AI dig. It read the system logs, discovered that the laptop was only pretending to sleep, and reconfigured it to power off safely on its own instead. It even traced part of the problem to a bug in Lenovo's firmware and worked around it.
 
