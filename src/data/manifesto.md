@@ -1,3 +1,7 @@
+<aside class="preface">
+A note before we start. This is not an ambush. If you love your Mac and it loves you back, keep it: a tool that works is a beautiful thing, and nobody's life was ever improved by being lectured about kernels. If switching is not a priority this year, or ever, that is fine too. I wrote this because a few things have genuinely changed, and I think they are worth knowing even if you never act on them. And because if the day comes when your computer annoys you one time too many, I want you to already know where the door is.
+</aside>
+
 I started using Linux when I was 11.
 
 The first distribution I tried was [Knoppix](https://www.knopper.net/knoppix/index-en.html), mostly because the idea sounded like magic: an entire operating system running directly from a CD-ROM, loaded into RAM, without even touching the hard drive.

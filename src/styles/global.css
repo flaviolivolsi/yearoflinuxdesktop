@@ -333,9 +333,19 @@ code {
   line-height: 1.85;
 }
 
-.prose > p:first-child {
+.prose > p:first-of-type {
   font-size: 1.25em;
   line-height: 1.6;
+}
+
+.preface {
+  font-style: italic;
+  font-size: 0.92em;
+  color: var(--muted);
+  border-left: 2px solid var(--accent);
+  padding-left: 1.1rem;
+  margin: 0 0 3rem;
+  line-height: 1.75;
 }
 
 .prose p {
