@@ -78,7 +78,7 @@ One example, straight from the logs I keep of everything the AI changes on my sy
 
 A few months ago my laptop developed a genuinely nasty habit. I would close the lid, put it in my backpack, and instead of sleeping it kept quietly drawing power, overheating in the bag until the kernel panicked. I would arrive somewhere, pull out a worryingly hot machine, and be greeted by a crash screen.
 
-The old me would have lost a weekend in forums. Instead, I described the symptoms and let the AI dig. It read the system journal and found that this laptop only supports a shallow modern-standby sleep, which regularly fails to reach the deep power state, so the machine never truly goes down. It set up hibernation as an automatic fallback: after thirty minutes in the bag, the laptop fully powers off and physically cannot cook itself. Then resuming from hibernation started panicking too, so it decoded the raw kernel panic report, traced the crash to a bug in Lenovo's firmware, and worked around it with a single kernel boot flag.
+The old me would have lost a weekend in forums. Instead, I described the symptoms and let the AI dig. It read the system logs, discovered that the laptop was only pretending to sleep, and reconfigured it to power off safely on its own instead. It even traced part of the problem to a bug in Lenovo's firmware and worked around it.
 
 A problem spanning firmware, kernel, bootloader and power management. My total contribution was describing symptoms and rebooting a few times. In 2008, that is a month of evenings ending with "suspend is broken, just shut it down."
 
