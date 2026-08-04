@@ -4,6 +4,14 @@ import Hero from '../components/Hero.astro';
 import Quiz from '../components/Quiz.astro';
 import Hardware from '../components/Hardware.astro';
 import { Content as Manifesto } from '../data/manifesto.md';
+import manifestoRaw from '../data/manifesto.md?raw';
+
+const words = manifestoRaw
+  .replace(/<[^>]+>/g, ' ')
+  .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+  .split(/\s+/)
+  .filter(Boolean).length;
+const readMinutes = Math.round(words / 230);
 ---
 
 <Base ogImage="/og/default.png">
@@ -11,7 +19,7 @@ import { Content as Manifesto } from '../data/manifesto.md';
 
   <section id="manifesto" class="section">
     <div class="wrap narrow">
-      <p class="kicker">the manifesto</p>
+      <p class="kicker">the manifesto <span class="kicker-meta">· a {readMinutes} minute read</span></p>
       <div class="prose">
         <Manifesto />
       </div>

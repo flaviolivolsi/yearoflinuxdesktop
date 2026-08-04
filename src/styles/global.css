@@ -325,6 +325,12 @@ code {
   color: var(--accent);
 }
 
+.kicker-meta {
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 0.75;
+}
+
 /* ---- manifesto prose --------------------------------------------------- */
 
 .prose {
