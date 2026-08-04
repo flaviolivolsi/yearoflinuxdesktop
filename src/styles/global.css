@@ -1098,6 +1098,10 @@ code {
   position: relative;
 }
 
+.rice-menu[hidden] {
+  display: none;
+}
+
 .rice-menu {
   position: absolute;
   right: 0;
