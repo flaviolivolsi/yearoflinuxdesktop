@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Hero from '../components/Hero.astro';
+import JumpCard from '../components/JumpCard.astro';
 import Quiz from '../components/Quiz.astro';
 import Hardware from '../components/Hardware.astro';
 import { Content as Manifesto } from '../data/manifesto.md';
@@ -26,6 +27,7 @@ const readMinutes = Math.round(words / 230);
       <p class="byline">
         <a href="https://flaviolivolsi.com">Flavio Li Volsi</a> · 2026
       </p>
+      <JumpCard />
       <p class="bridge">
         No reasons left? <a href="#quiz">Find your Linux &darr;</a>
       </p>

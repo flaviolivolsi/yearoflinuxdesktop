@@ -187,36 +187,3 @@ And it matters more now than it did when I was 11. Everything I have built in th
 So the question is no longer why someone would switch to Linux.
 
 The question is: what reason do you still have not to?
-
-
-<aside class="jump-card">
-  <p class="jump-title">Reasons you might be scared to jump</p>
-  <p class="jump-sub">All of them real. Here is the honest version of each.</p>
-  <dl class="jump-list">
-    <div>
-      <dt>Photoshop pays my rent</dt>
-      <dd>Then keep a machine for Photoshop. Krita, GIMP and DaVinci Resolve are genuinely good, but they are not the same thing, and pretending otherwise would be lying. Many people dual-boot exactly for this.</dd>
-    </div>
-    <div>
-      <dt>My games have anticheat</dt>
-      <dd>A few competitive titles refuse to run on Linux. That is their publisher's choice, not a Linux bug. Almost everything else works through Steam. Keep a small Windows partition for the holdouts.</dd>
-    </div>
-    <div>
-      <dt>Excel runs my life</dt>
-      <dd>LibreOffice and Office in the browser cover most people. Twenty years of macros is a real anchor: use a VM, or dual-boot.</dd>
-    </div>
-    <div>
-      <dt>I don't have time to learn a new system</dt>
-      <dd>Fair. Start from a USB stick without touching your disk, pick a distro that feels familiar, and ask the AI instead of forums. The curve is much shorter than the legend says.</dd>
-    </div>
-    <div>
-      <dt>Work forces Windows on me</dt>
-      <dd>Work machines are work machines. Switch the computer that is yours.</dd>
-    </div>
-    <div>
-      <dt>What if my hardware doesn't work</dt>
-      <dd>The USB stick answers that too. Ten minutes will show you whether Wi-Fi, sound and screen behave, before you change anything at all.</dd>
-    </div>
-  </dl>
-  <p class="jump-close">Some of these trades are real. As PewDiePie <a href="https://www.webpronews.com/youtuber-pewdiepie-switches-to-linux/">put it about his own switch</a>: "If you're swapping to Linux, you'll likely have to give something up. I don't know what that is, but for me it was Photoshop." The question is not whether you give something up. It is whether what you get back is bigger. What you get back is the whole computer.</p>
-</aside>
