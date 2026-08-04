@@ -121,6 +121,11 @@ But only when you are allowed to shape it.
 
 With Linux, the operating system can look the way I want, behave the way I want and reflect the way I organize my thoughts.
 
+<aside class="rice-bar">
+  <p>That applies to this website too. Rice it, right here:</p>
+  <div data-rice-chips></div>
+</aside>
+
 There has never been a better time to switch.
 
 You get a computer that you truly own. Not just the aluminium object sitting on your desk, but the system itself. You can inspect it, modify it, remove the parts you hate and replace them with better ones. Make it minimal or extravagant, keyboard-driven or mouse-driven, beautiful or aggressively utilitarian.

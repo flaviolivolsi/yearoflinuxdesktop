@@ -2,7 +2,7 @@
 // Press ~ anywhere. Yes, the website has a shell. You found it.
 ---
 
-<div class="yold-shell" id="yold-shell" hidden role="dialog" aria-label="Fake terminal">
+<div class="yold-shell" id="yold-shell" hidden role="dialog" aria-modal="true" aria-label="Fake terminal">
   <div class="yold-shell-out" id="yold-shell-out"></div>
   <div class="yold-shell-row">
     <span class="ps1">you@yold:~$</span>
@@ -15,6 +15,7 @@
   const out = document.getElementById('yold-shell-out');
   const inp = document.getElementById('yold-shell-in');
   let opened = false;
+  let prevFocus = null;
 
   function print(text, cls) {
     const div = document.createElement('div');
@@ -25,6 +26,7 @@
   }
 
   function open() {
+    prevFocus = document.activeElement;
     shell.hidden = false;
     if (!opened) {
       opened = true;
@@ -37,17 +39,21 @@
   function close() {
     shell.hidden = true;
     inp.blur();
+    if (prevFocus && typeof prevFocus.focus === 'function') prevFocus.focus();
+    prevFocus = null;
   }
+
+  // Layout-neutral opener for keyboards where ~ is a contortion, and for taps.
+  window.yoldOpenShell = open;
 
   const THEME_NAMES = ['auto', 'light', 'dark', 'gruvbox', 'catppuccin', 'nord', 'tokyonight', 'dracula'];
 
   const CMDS = {
     help() {
-      print('ls  cat manifesto.md  ./find-your-linux  theme <name>  neofetch  whoami  sudo  clear  exit');
+      print('ls  cd <dir>  cat manifesto.md  ./find-your-linux  theme <name>  neofetch  whoami  sudo  clear  exit');
     },
     ls() {
       print('manifesto/   quiz/   hardware/   source/   trackers/');
-      print('ls: trackers/: empty directory', 'dim');
     },
     whoami() {
       print('someone who presses ~ on strange websites. correct instinct.');
@@ -89,6 +95,42 @@
       print('rm: some things you only get to break on your own machine. Go install Linux.');
       return;
     }
+    if (cmd === 'cd') {
+      const dir = (args[0] || '~').replace(/\/$/, '');
+      if (dir === '~' || dir === '') {
+        close();
+        window.scrollTo({ top: 0 });
+        return;
+      }
+      if (dir === '..') {
+        print('going back where you came from.', 'dim');
+        setTimeout(() => history.back(), 500);
+        return;
+      }
+      if (dir === 'trackers') {
+        print("cd: trackers/: there is nothing in there. That is the entire directory's job.");
+        return;
+      }
+      if (dir === 'source') {
+        print('source/ lives on GitHub. opening…', 'dim');
+        setTimeout(() => window.open('https://github.com/flaviolivolsi/yearoflinuxdesktop', '_blank', 'noopener'), 500);
+        return;
+      }
+      if (['manifesto', 'quiz', 'hardware'].includes(dir)) {
+        print(`entering ${dir}/`, 'dim');
+        setTimeout(() => {
+          close();
+          window.location.href = `/#${dir}`;
+        }, 400);
+        return;
+      }
+      print(`cd: ${dir}: no such directory. try ls`, 'dim');
+      return;
+    }
+    if (cmd === 'ls' && args[0]) {
+      print(args[0].replace(/\/$/, '') === 'trackers' ? 'total 0' : `ls: ${args[0]}: try without arguments`);
+      return;
+    }
     if (cmd === 'cat' && args[0] === 'manifesto.md') {
       print('I started using Linux when I was 11.');
       print('…');
@@ -125,7 +167,7 @@
       CMDS[cmd]();
       return;
     }
-    print(`yolsh: ${cmd}: command not found (this shell is a bit, not a product)`, 'dim');
+    print(`yolsh: ${cmd}: command not found`, 'dim');
   }
 
   inp.addEventListener('keydown', (e) => {
@@ -134,6 +176,8 @@
       inp.value = '';
     } else if (e.key === 'Escape') {
       close();
+    } else if (e.key === 'Tab') {
+      e.preventDefault(); // the shell has one focusable thing; stay on it
     }
     e.stopPropagation();
   });

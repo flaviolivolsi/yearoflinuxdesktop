@@ -1091,3 +1091,83 @@ code {
 .quiz-log.last {
   color: var(--accent);
 }
+
+/* ---- rice UI ------------------------------------------------------------ */
+
+.rice-wrap {
+  position: relative;
+}
+
+.rice-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.5rem);
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.55rem;
+  display: grid;
+  gap: 0.2rem;
+  z-index: 40;
+  min-width: 12rem;
+}
+
+.rice-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0.35em 0.6em;
+  cursor: pointer;
+  text-align: left;
+}
+
+.rice-chip:hover {
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--code-bg);
+}
+
+.rice-chip.active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.rice-chip .dot {
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.rice-bar {
+  border: 1px dashed var(--accent);
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+  margin: 2.5rem 0;
+}
+
+.rice-bar p {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 0.8rem;
+}
+
+.rice-bar [data-rice-chips] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+@media print {
+  .rice-bar {
+    display: none !important;
+  }
+}

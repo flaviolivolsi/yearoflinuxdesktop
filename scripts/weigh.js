@@ -20,8 +20,17 @@ let touched = 0;
 for (const f of htmlFiles(DIST)) {
   const s = readFileSync(f, 'utf8');
   if (!s.includes('__WEIGHT__')) continue;
-  const kb = Math.ceil(statSync(f).size / 1024);
-  writeFileSync(f, s.replaceAll('__WEIGHT__', String(kb)));
+  // Measure AFTER replacement, iterating until the printed value matches
+  // the actual final size. The page must not lie about its own weight.
+  let kb = Math.ceil(statSync(f).size / 1024);
+  let out = '';
+  for (let i = 0; i < 4; i++) {
+    out = s.replaceAll('__WEIGHT__', String(kb));
+    const real = Math.ceil(Buffer.byteLength(out, 'utf8') / 1024);
+    if (real === kb) break;
+    kb = real;
+  }
+  writeFileSync(f, out);
   touched++;
 }
 console.log(`weighed ${touched} page(s)`);

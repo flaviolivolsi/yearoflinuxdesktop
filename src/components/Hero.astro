@@ -44,8 +44,12 @@
     let i = 0;
     let finished = false;
 
-    function finish() {
+    function finish(e) {
       if (finished) return;
+      if (e && e.type === 'keydown' && (e.key === '~' || e.key === '`')) {
+        e.preventDefault();
+        e.stopImmediatePropagation(); // skip boot, do not also open the shell
+      }
       finished = true;
       screen.classList.add('done');
       setTimeout(() => screen.remove(), 400);

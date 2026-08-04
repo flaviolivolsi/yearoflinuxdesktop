@@ -68,42 +68,89 @@ const canonical = `https://yearoflinuxdesktop.com${canonicalPath}`;
           <a href="/#manifesto">manifesto</a>
           <a href="/#quiz">quiz</a>
           <a href="https://github.com/flaviolivolsi/yearoflinuxdesktop">source</a>
-          <button class="theme-toggle" id="theme-toggle" aria-label="Change color theme (rice)" title="rice the site">
-            ◐ auto
-          </button>
+          <div class="rice-wrap">
+            <button class="theme-toggle" id="theme-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Rice the site: change color theme" title="rice the site">
+              rice ▾
+            </button>
+            <div class="rice-menu" id="rice-menu" hidden data-rice-chips></div>
+          </div>
         </nav>
       </div>
     </header>
     <script is:inline>
       (() => {
-        const THEMES = ['auto', 'light', 'dark', 'gruvbox', 'catppuccin', 'nord', 'tokyonight', 'dracula'];
-        const btn = document.getElementById('theme-toggle');
+        // name -> [bg, accent, ink] swatch colors. The palettes live in CSS;
+        // these dots are just the menu's preview.
+        const PAL = {
+          auto: ['#101310', '#c6dc72', '#f6f5ef'],
+          light: ['#f6f5ef', '#55671c', '#1e211b'],
+          dark: ['#101310', '#c6dc72', '#e7e9e1'],
+          gruvbox: ['#282828', '#b8bb26', '#ebdbb2'],
+          catppuccin: ['#1e1e2e', '#cba6f7', '#cdd6f4'],
+          nord: ['#2e3440', '#88c0d0', '#eceff4'],
+          tokyonight: ['#1a1b26', '#7aa2f7', '#c0caf5'],
+          dracula: ['#282a36', '#50fa7b', '#f8f8f2'],
+        };
+        window.yoldThemes = PAL;
         const root = document.documentElement;
+        const btn = document.getElementById('theme-toggle');
+        const menu = document.getElementById('rice-menu');
 
         function current() {
           try {
             const t = localStorage.getItem('theme');
-            return THEMES.includes(t) ? t : 'auto';
+            return PAL[t] ? t : 'auto';
           } catch {
             return 'auto';
           }
         }
 
+        function renderChips() {
+          document.querySelectorAll('[data-rice-chips]').forEach((box) => {
+            box.innerHTML = '';
+            for (const name of Object.keys(PAL)) {
+              const b = document.createElement('button');
+              b.type = 'button';
+              b.className = 'rice-chip' + (name === current() ? ' active' : '');
+              b.innerHTML =
+                PAL[name].map((c) => `<span class="dot" style="background:${c}"></span>`).join('') +
+                `<span>${name}</span>`;
+              b.addEventListener('click', () => {
+                window.yoldSetTheme(name);
+                if (!menu.hidden) toggleMenu(false);
+              });
+              box.appendChild(b);
+            }
+          });
+        }
+
         window.yoldSetTheme = (t) => {
-          if (!THEMES.includes(t)) return;
+          if (!PAL[t]) return;
           if (t === 'auto') delete root.dataset.theme;
           else root.dataset.theme = t;
           try {
             localStorage.setItem('theme', t);
           } catch {}
-          btn.textContent = `◐ ${t}`;
+          btn.textContent = `rice: ${t} ▾`;
+          renderChips();
         };
 
-        btn.textContent = `◐ ${current()}`;
-        btn.addEventListener('click', () => {
-          const next = THEMES[(THEMES.indexOf(current()) + 1) % THEMES.length];
-          window.yoldSetTheme(next);
+        function toggleMenu(show) {
+          const s = show ?? menu.hidden;
+          menu.hidden = !s;
+          btn.setAttribute('aria-expanded', String(s));
+        }
+
+        btn.textContent = `rice: ${current()} ▾`;
+        btn.addEventListener('click', () => toggleMenu());
+        document.addEventListener('click', (e) => {
+          if (!menu.hidden && !menu.contains(e.target) && e.target !== btn) toggleMenu(false);
         });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && !menu.hidden) toggleMenu(false);
+        });
+        renderChips();
+        document.addEventListener('DOMContentLoaded', renderChips);
       })();
     </script>
 

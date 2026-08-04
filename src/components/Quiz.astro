@@ -66,6 +66,8 @@ const archetypes = archetypesData.archetypes;
 
   let idx = -1; // -1 = intro
   let hi = 0; // highlighted option
+  let advancing = false; // guards double-click / key-repeat races
+  let done = false;
   const answers = [];
 
   function esc(s) {
@@ -136,6 +138,8 @@ const archetypes = archetypesData.archetypes;
   }
 
   function choose(i) {
+    if (advancing || done) return;
+    advancing = true;
     answers[idx] = i;
     // brief visual confirmation, then advance
     const btn = app.querySelector(`.opt[data-i="${i}"]`);
@@ -144,6 +148,7 @@ const archetypes = archetypesData.archetypes;
       btn.setAttribute('aria-checked', 'true');
     }
     setTimeout(() => {
+      advancing = false;
       idx++;
       hi = answers[idx] ?? 0;
       if (idx >= Q) finish();
@@ -152,6 +157,8 @@ const archetypes = archetypesData.archetypes;
   }
 
   function finish() {
+    if (done) return;
+    done = true;
     step.textContent = 'computing…';
     const result = rank(answers, questions, archetypes);
     const a = encodeAnswers(answers);
