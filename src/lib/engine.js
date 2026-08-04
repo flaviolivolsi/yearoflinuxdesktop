@@ -56,7 +56,6 @@ export function scoreArchetype(axes, gates, archetype) {
     }
   }
   // Gate bonuses: hard facts should be able to outvote fuzzy vibes.
-  if (gates.machine === 'deck' && archetype.slug === 'gamer') score += 0.12;
   if (gates.anchor === 'anticheat' && archetype.slug === 'gamer') score += 0.06;
   return score;
 }
@@ -109,9 +108,9 @@ export function personalize(archetype, gates) {
     );
   }
 
-  if (gates.machine === 'deck') {
+  if (gates.machine === 'mac') {
     notes.push(
-      'The Deck already runs Linux; you switched a while ago. This blueprint is for the desk next to it.'
+      'A Mac: if it is Intel, it is a great Linux machine. If it is Apple Silicon (M1 or newer), Linux support is still experimental (Asahi Linux); consider a VM first, or different hardware. Your setup prompt includes this check.'
     );
   }
 
@@ -134,10 +133,10 @@ export function comfortLabel(axes) {
 }
 
 const MACHINE_TEXT = {
-  have: 'my current laptop',
+  have: 'the computer I already use every day',
   old: 'an old machine I want to revive',
   none: 'a machine I still need to buy',
-  deck: 'a desktop machine (I also own a Steam Deck)',
+  mac: 'a Mac. First, help me find out whether it is Intel or Apple Silicon (M-series), and be honest about my options for each',
 };
 
 const GPU_TEXT = {
@@ -149,7 +148,7 @@ const GPU_TEXT = {
 const ANCHOR_TEXT = {
   none: 'nothing, clean break',
   some: 'one or two apps I could replace or run through a compatibility layer',
-  pro: 'Adobe / MS Office professionally (I may need a VM or dual-boot)',
+  pro: 'professional software (Adobe, Office or music tools); I may need a VM or dual-boot',
   anticheat: 'competitive games with anticheat (I may keep a small Windows partition)',
 };
 

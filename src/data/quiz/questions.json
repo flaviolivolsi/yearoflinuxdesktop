@@ -14,10 +14,10 @@
   "questions": [
     {
       "id": "machine",
-      "prompt": "What will this run on?",
+      "prompt": "What computer will this run on?",
       "options": [
         {
-          "label": "The laptop I already have",
+          "label": "The computer I already use every day",
           "axes": {},
           "gates": {
             "machine": "have"
@@ -34,26 +34,24 @@
           }
         },
         {
-          "label": "I'd buy something new for this",
+          "label": "A Mac",
           "axes": {},
           "gates": {
-            "machine": "none"
+            "machine": "mac"
           }
         },
         {
-          "label": "There is a Steam Deck involved",
-          "axes": {
-            "game": 0.6
-          },
+          "label": "None yet. I would buy something for this",
+          "axes": {},
           "gates": {
-            "machine": "deck"
+            "machine": "none"
           }
         }
       ]
     },
     {
       "id": "gpu",
-      "prompt": "Your graphics card situation:",
+      "prompt": "Your graphics card, if you happen to know it:",
       "options": [
         {
           "label": "Nvidia",
@@ -70,7 +68,7 @@
           }
         },
         {
-          "label": "Whatever came in the laptop",
+          "label": "Whatever came with the computer",
           "axes": {},
           "gates": {
             "gpu": "unknown"
@@ -87,7 +85,7 @@
     },
     {
       "id": "terminal",
-      "prompt": "The terminal is:",
+      "prompt": "The terminal (the black window where you type commands) is:",
       "options": [
         {
           "label": "Home",
@@ -174,7 +172,7 @@
     },
     {
       "id": "updates",
-      "prompt": "Updates should arrive:",
+      "prompt": "Software updates should arrive:",
       "options": [
         {
           "label": "Daily. I want everything now",
@@ -219,7 +217,7 @@
           }
         },
         {
-          "label": "Adobe or MS Office, professionally",
+          "label": "Professional software: Adobe, Office, music tools",
           "axes": {},
           "gates": {
             "anchor": "pro"
@@ -238,16 +236,16 @@
     },
     {
       "id": "gaming",
-      "prompt": "Gaming on this machine:",
+      "prompt": "Gaming on this computer:",
       "options": [
         {
           "label": "Not a thing",
           "axes": {}
         },
         {
-          "label": "Occasional, single-player, cozy",
+          "label": "Sometimes, or I would like to start",
           "axes": {
-            "game": 0.5
+            "game": 0.4
           }
         },
         {
@@ -296,7 +294,7 @@
     },
     {
       "id": "time",
-      "prompt": "How much time will you give this relationship?",
+      "prompt": "Honestly, how much time will you spend setting your system up?",
       "options": [
         {
           "label": "A weekend of joyful fiddling, gladly",
@@ -315,7 +313,7 @@
           "axes": {}
         },
         {
-          "label": "I want to be tweaking configs at 2am, happy",
+          "label": "No limit. Tweaking the system IS the hobby",
           "axes": {
             "tinker": 1,
             "kb": 0.4,
@@ -326,25 +324,25 @@
     },
     {
       "id": "windows",
-      "prompt": "Windows on your screen should:",
+      "prompt": "How should windows behave on your screen?",
       "options": [
         {
-          "label": "Float around, like every computer since 1995",
+          "label": "Float freely, like on Windows and Mac",
           "axes": {}
         },
         {
-          "label": "Snap neatly. I mostly drive with the mouse",
+          "label": "Snap side by side when I drag them",
           "axes": {}
         },
         {
-          "label": "Tile themselves. My hands stay on the keyboard",
+          "label": "Arrange themselves automatically, hands on the keyboard (tiling)",
           "axes": {
             "kb": 1,
             "tinker": 0.3
           }
         },
         {
-          "label": "What windows? Fullscreen and workspaces, always",
+          "label": "Fullscreen everything, switch with shortcuts",
           "axes": {
             "kb": 0.7
           }
@@ -353,7 +351,7 @@
     },
     {
       "id": "rebuild",
-      "prompt": "If your laptop died tonight:",
+      "prompt": "If your computer died tonight:",
       "options": [
         {
           "label": "Catastrophe. Everything lives there",

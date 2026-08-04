@@ -74,7 +74,6 @@ function fastWinner() {
     if (floors[i]) {
       for (const [ax, min] of floors[i]) if (axes[ax] < min) s -= 1;
     }
-    if (answers[QM] === 3 && i === GAMER) s += 0.12;
     if (answers[QA] === 3 && i === GAMER) s += 0.06;
     if (s > bestScore) {
       bestScore = s;
@@ -119,7 +118,7 @@ for (let n = 0; n < TOTAL; n++) {
   if (answers[QT] === 3) { condFear[w]++; condFearTotal++; }
   if (answers[QA] === 3) { condAnti[w]++; condAntiTotal++; }
   // no-default-winner invariants: an archetype must not win without its signal
-  if (answers[QG] === 0 && answers[QM] !== 3 && answers[QA] !== 3) {
+  if (answers[QG] === 0 && answers[QA] !== 3) {
     noGameTotal++;
     if (archetypes[w].slug === 'gamer') gamerWithoutSignal++;
   }
@@ -169,7 +168,8 @@ const personas = [
   ['unixporn poster', [0, 1, 0, 2, 2, 0, 0, 1, 1, 3, 2, 2], ['rice-farmer', 'arch-wizard']],
   ['terminal maximalist, hates decoration', [0, 1, 0, 2, 3, 1, 0, 0, 1, 3, 2, 2], ['monk']],
   ['competitive gamer with anticheat', [0, 0, 2, 1, 1, 1, 3, 2, 2, 1, 0, 1], ['gamer']],
-  ['steam deck owner going desktop', [3, 1, 2, 1, 1, 1, 1, 3, 2, 1, 1, 1], ['gamer']],
+  ['gamer buying a new machine for this', [3, 1, 2, 1, 1, 1, 0, 3, 2, 1, 1, 1], ['gamer']],
+  ['mac-owning dev, tiling curious', [2, 3, 0, 2, 1, 1, 1, 0, 0, 1, 2, 1], ['pro', 'escapee', 'arch-wizard']],
   ['senior dev, wants boring, mouse is fine', [0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1], ['pro']],
   ['gnome-loving dev, floats windows', [0, 1, 0, 2, 1, 1, 0, 1, 0, 1, 0, 1], ['pro']],
   ['arch dev: tiling, daily updates, 2am configs', [0, 1, 0, 3, 3, 0, 0, 0, 0, 3, 2, 2], ['arch-wizard']],
