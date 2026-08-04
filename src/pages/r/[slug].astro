@@ -49,6 +49,10 @@ const canonical = `https://yearoflinuxdesktop.com/r/${archetype.slug}/`;
         </div>
       </div>
 
+      <div class="share-row">
+        <button class="btn" id="share-result">[ copy link to this result ]</button>
+      </div>
+
       <div class="prompt-block" id="prompt-block" hidden>
         <p class="kicker" style="margin: 3rem 0 1rem;">your setup prompt</p>
         <p class="prompt-lead">
@@ -104,6 +108,18 @@ const canonical = `https://yearoflinuxdesktop.com/r/${archetype.slug}/`;
 
   const a = new URLSearchParams(window.location.search).get('a');
   const answers = decodeAnswers(a, questions.length);
+
+  const shareBtn = document.getElementById('share-result');
+  shareBtn.addEventListener('click', async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      window.prompt('Copy this link:', url);
+    }
+    shareBtn.textContent = '[ copied ✓ ]';
+    setTimeout(() => (shareBtn.textContent = '[ copy link to this result ]'), 2600);
+  });
 
   function esc(s) {
     return s.replace(/&/g, '&amp;').replace(/</g, '&lt;');

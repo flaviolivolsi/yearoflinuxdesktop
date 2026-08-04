@@ -682,6 +682,10 @@ code {
   color: var(--accent);
 }
 
+.share-row {
+  margin-top: 1.2rem;
+}
+
 .prompt-block {
   margin-top: 2.5rem;
 }
