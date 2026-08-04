@@ -71,7 +71,7 @@ const canonical = `https://yearoflinuxdesktop.com${canonicalPath}`;
           <a href="https://github.com/flaviolivolsi/yearoflinuxdesktop">source</a>
           <div class="rice-wrap">
             <button class="theme-toggle" id="theme-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Rice the site: change color theme" title="rice the site">
-              rice ▾
+              <span class="rice-dot" aria-hidden="true"></span> rice ▾
             </button>
             <div class="rice-menu" id="rice-menu" hidden data-rice-chips></div>
           </div>
@@ -122,6 +122,14 @@ const canonical = `https://yearoflinuxdesktop.com${canonicalPath}`;
               });
               box.appendChild(b);
             }
+            if (box === menu) {
+              const x = document.createElement('button');
+              x.type = 'button';
+              x.className = 'rice-chip rice-close';
+              x.textContent = '✕ close';
+              x.addEventListener('click', () => toggleMenu(false));
+              box.appendChild(x);
+            }
           });
         }
 
@@ -132,7 +140,7 @@ const canonical = `https://yearoflinuxdesktop.com${canonicalPath}`;
           try {
             localStorage.setItem('theme', t);
           } catch {}
-          btn.textContent = `rice: ${t} ▾`;
+          btn.setAttribute('aria-label', `Rice the site. Current: ${t}`);
           renderChips();
         };
 
@@ -142,7 +150,7 @@ const canonical = `https://yearoflinuxdesktop.com${canonicalPath}`;
           btn.setAttribute('aria-expanded', String(s));
         }
 
-        btn.textContent = `rice: ${current()} ▾`;
+        btn.setAttribute('aria-label', `Rice the site. Current: ${current()}`);
         btn.addEventListener('click', () => toggleMenu());
         // pointerdown, not click: iOS does not reliably deliver document
         // clicks from taps on non-interactive areas.
