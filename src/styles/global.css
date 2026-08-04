@@ -1210,3 +1210,29 @@ code {
   margin-top: 0.3rem;
   padding-top: 0.6rem;
 }
+
+.read-progress {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 30;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  background: var(--bg-raise);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.4em 0.7em;
+  pointer-events: none;
+}
+
+.read-progress[hidden] {
+  display: none;
+}
+
+@media print {
+  .read-progress {
+    display: none !important;
+  }
+}
