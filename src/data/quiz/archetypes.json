@@ -99,7 +99,7 @@
           "v": "you will handle that part yourself"
         }
       ],
-      "annoy": "Your own perfectionism. The rice is never done; that is the point.",
+      "annoy": "Your own perfectionism. The rice is never done. You know this.",
       "hardwareNone": "Framework Laptop 13: repairable, and the screenshots will match the hardware's taste level.",
       "alt": "EndeavourOS, if you want closer-to-vanilla Arch under the rice.",
       "floor": {
@@ -449,7 +449,7 @@
         }
       ],
       "annoy": "The documentation. Everyone says it. Everyone is right.",
-      "hardwareNone": "Anything. That is the point: the config outlives the hardware.",
+      "hardwareNone": "Anything. The config outlives the hardware.",
       "alt": "Guix, if you would rather declare your universe in Scheme.",
       "floor": {
         "term": 0.35

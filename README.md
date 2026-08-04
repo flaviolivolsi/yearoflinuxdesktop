@@ -21,7 +21,7 @@ mock while the machinery is designed properly.
    can audit exactly what is (and is not) collected.
 3. **Open data.** The quiz's questions, archetypes, gates and scoring weights
    will ship as plain JSON in this repo. Disagree with a recommendation? Open a
-   pull request, that is the whole idea.
+   pull request.
 4. **Honesty.** Every quiz result includes a "what will still annoy you"
    section. No horoscopes, no lies.
 
@@ -46,5 +46,4 @@ src/
 
 ## License
 
-[MIT](LICENSE). Fork it, translate it, argue with the quiz weights. That is
-the point.
+[MIT](LICENSE). Fork it, translate it, argue with the quiz weights.

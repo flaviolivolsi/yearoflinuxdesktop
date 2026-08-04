@@ -169,7 +169,7 @@ These were not reluctant converts. Watching people like that walk away from macO
   </button>
   <figcaption>
     He explains most of this essay, but funnier. Nothing loads from YouTube
-    until you press play; that is the whole point of this website.
+    until you press play.
   </figcaption>
 </figure>
 
