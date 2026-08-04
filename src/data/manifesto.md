@@ -104,7 +104,7 @@ My computer does not feel like a collection of windows floating around a desktop
 
 I move through workspaces instantly with the keyboard or a trackpad gesture. Applications live in predictable places. My hands learn the machine. I navigate through mental maps and shortcuts instead of repeatedly hunting for windows, dragging rectangles around and waiting for ornamental transitions.
 
-The interface disappears.
+The interface gets out of the way.
 
 The computer becomes fast not only in benchmarks, but in the way that actually matters: the distance between intending to do something and doing it becomes shorter.
 
