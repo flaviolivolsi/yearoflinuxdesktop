@@ -92,7 +92,7 @@ The old trade-off was freedom versus convenience.
 
 That trade-off is disappearing.
 
-And it is disappearing while the rest of the ecosystem gets dramatically better on its own. Valve [dragged Linux gaming into legitimacy](https://www.protondb.com/), an entire generation of manufacturers now builds machines with Linux in mind, and between native apps, the browser and compatibility layers, the software gap shrinks every year.
+And it is disappearing while the rest of the ecosystem gets dramatically better on its own. Valve [made Linux gaming real](https://www.protondb.com/) with SteamOS and the Steam Deck, more manufacturers build machines with Linux in mind, and between native apps, the browser and compatibility layers, the software gap shrinks every year.
 
 Then there is the newer generation of Linux environments that are not satisfied with merely being functional.
 
