@@ -869,3 +869,225 @@ code {
 .site-footer .sig {
   margin-top: 1.5rem;
 }
+
+/* ==========================================================================
+   Rice. The site is themeable because that is the entire thesis.
+   Palettes are the classics, readability-adjusted where muted text
+   would fail contrast. Add yours in a pull request.
+   ========================================================================== */
+
+:root[data-theme='gruvbox'] {
+  --bg: #282828;
+  --bg-raise: #3c3836;
+  --ink: #ebdbb2;
+  --muted: #a89984;
+  --accent: #b8bb26;
+  --accent-ink: #282828;
+  --line: #504945;
+  --code-bg: #32302f;
+}
+
+:root[data-theme='catppuccin'] {
+  --bg: #1e1e2e;
+  --bg-raise: #313244;
+  --ink: #cdd6f4;
+  --muted: #a6adc8;
+  --accent: #cba6f7;
+  --accent-ink: #1e1e2e;
+  --line: #45475a;
+  --code-bg: #181825;
+}
+
+:root[data-theme='nord'] {
+  --bg: #2e3440;
+  --bg-raise: #3b4252;
+  --ink: #eceff4;
+  --muted: #9fb0cc;
+  --accent: #88c0d0;
+  --accent-ink: #2e3440;
+  --line: #434c5e;
+  --code-bg: #353c4a;
+}
+
+:root[data-theme='tokyonight'] {
+  --bg: #1a1b26;
+  --bg-raise: #24283b;
+  --ink: #c0caf5;
+  --muted: #7982a9;
+  --accent: #7aa2f7;
+  --accent-ink: #1a1b26;
+  --line: #414868;
+  --code-bg: #16161e;
+}
+
+:root[data-theme='dracula'] {
+  --bg: #282a36;
+  --bg-raise: #343746;
+  --ink: #f8f8f2;
+  --muted: #8b96c5;
+  --accent: #50fa7b;
+  --accent-ink: #282a36;
+  --line: #44475a;
+  --code-bg: #21222c;
+}
+
+/* ---- the shell (press ~) ---------------------------------------------- */
+
+.yold-shell {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: min(46vh, 24rem);
+  background: var(--bg-raise);
+  border-top: 2px solid var(--accent);
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  padding: 0.9rem 1.2rem;
+}
+
+.yold-shell[hidden] {
+  display: none;
+}
+
+.yold-shell-out {
+  flex: 1;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.yold-shell-out .dim {
+  color: var(--muted);
+}
+
+.yold-shell-out .acc {
+  color: var(--accent);
+}
+
+.yold-shell-row {
+  display: flex;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.yold-shell-row .ps1 {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.yold-shell-row input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--ink);
+  font: inherit;
+}
+
+/* ---- boot sequence ------------------------------------------------------ */
+
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 80;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: clamp(1.5rem, 6vw, 4rem);
+  white-space: pre-wrap;
+  transition: opacity 0.35s ease;
+}
+
+.boot-screen.done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.boot-screen .ok {
+  color: var(--accent);
+}
+
+/* ---- archetype sigil ----------------------------------------------------- */
+
+.sigil {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.15;
+  color: var(--accent);
+  margin: 0 0 0.9rem;
+  white-space: pre;
+}
+
+/* ---- print: the pamphlet -------------------------------------------------- */
+
+.print-note {
+  display: none;
+}
+
+@media print {
+  :root,
+  :root[data-theme] {
+    --bg: #ffffff;
+    --bg-raise: #ffffff;
+    --ink: #000000;
+    --muted: #333333;
+    --accent: #000000;
+    --line: #999999;
+    --code-bg: #f2f2f2;
+  }
+
+  .site-header,
+  .site-footer,
+  .hero,
+  #quiz,
+  #hardware,
+  .bridge,
+  .theme-toggle,
+  .yt-embed,
+  .skip-link,
+  .yold-shell {
+    display: none !important;
+  }
+
+  .section {
+    border: none;
+    padding: 0;
+  }
+
+  .prose {
+    max-width: none;
+    column-count: 2;
+    column-gap: 9mm;
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+
+  .print-note {
+    display: block;
+    font-family: var(--mono);
+    font-size: 8pt;
+    margin-top: 6mm;
+    border-top: 1pt solid #000;
+    padding-top: 3mm;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+}
+
+.quiz-log {
+  font-family: var(--mono);
+  color: var(--muted);
+  padding: 0.2em 0;
+}
+
+.quiz-log.last {
+  color: var(--accent);
+}

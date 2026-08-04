@@ -155,7 +155,25 @@ const archetypes = archetypesData.archetypes;
     step.textContent = 'computing…';
     const result = rank(answers, questions, archetypes);
     const a = encodeAnswers(answers);
-    window.location.href = `/r/${result.winner.slug}/?a=${a}`;
+    const logs = [
+      'weighing 9 axes…',
+      'checking hard floors…',
+      'consulting 16,777,216 possibilities…',
+      `found you: ${result.winner.name}`,
+    ];
+    app.innerHTML = '<div id="quiz-logs" aria-live="polite"></div>';
+    const box = document.getElementById('quiz-logs');
+    logs.forEach((l, i) => {
+      setTimeout(() => {
+        const d = document.createElement('div');
+        d.className = 'quiz-log' + (i === logs.length - 1 ? ' last' : '');
+        d.textContent = l;
+        box.appendChild(d);
+      }, 320 * i);
+    });
+    setTimeout(() => {
+      window.location.href = `/r/${result.winner.slug}/?a=${a}`;
+    }, 320 * logs.length + 420);
   }
 
   document.addEventListener('keydown', (e) => {

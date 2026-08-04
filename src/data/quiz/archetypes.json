@@ -52,7 +52,13 @@
       "alt": "Gentoo, if even Arch feels too pre-chewed.",
       "floor": {
         "term": 0.35
-      }
+      },
+      "sigil": [
+        "    /\\\\",
+        "   /  \\\\",
+        "  / /\\\\ \\\\",
+        " /_/  \\\\_\\\\"
+      ]
     },
     {
       "slug": "rice-farmer",
@@ -104,7 +110,13 @@
       "alt": "EndeavourOS, if you want closer-to-vanilla Arch under the rice.",
       "floor": {
         "term": 0.35
-      }
+      },
+      "sigil": [
+        " \\\\      /",
+        "  \\\\____/",
+        "   \\\\__/",
+        "  ______"
+      ]
     },
     {
       "slug": "escapee",
@@ -155,7 +167,13 @@
       "alt": "Fedora Workstation, if you would rather have a big-tent default than one person's opinionated setup.",
       "floor": {
         "term": 0.15
-      }
+      },
+      "sigil": [
+        "  ____",
+        " |  o |",
+        " |    |",
+        " |_[]_|"
+      ]
     },
     {
       "slug": "civilian",
@@ -203,7 +221,13 @@
       ],
       "annoy": "Friends who use Arch will call this boring. They rebuild their audio stack on weekends. You have a life.",
       "hardwareNone": "A refurbished ThinkPad or a Slimbook: quiet, certified, done.",
-      "alt": "Fedora Workstation, if your laptop is very new and you want the modern stack at the cost of a slightly less familiar desktop."
+      "alt": "Fedora Workstation, if your laptop is very new and you want the modern stack at the cost of a slightly less familiar desktop.",
+      "sigil": [
+        "    /\\\\",
+        "   /  \\\\",
+        "  | [] |",
+        "  |____|"
+      ]
     },
     {
       "slug": "grandpa",
@@ -251,7 +275,13 @@
       ],
       "annoy": "Your software is two years old. So is your peace of mind. Fair trade.",
       "hardwareNone": "Any ThinkPad from the last decade. It will match your energy: unglamorous, indestructible.",
-      "alt": "Ubuntu LTS, if you want the biggest support ecosystem and can make peace with snaps."
+      "alt": "Ubuntu LTS, if you want the biggest support ecosystem and can make peace with snaps.",
+      "sigil": [
+        "   .--.",
+        "  |12  |",
+        "  | \\\\  |",
+        "   *--*"
+      ]
     },
     {
       "slug": "gamer",
@@ -301,7 +331,13 @@
       "alt": "CachyOS, if you want to turn the performance knobs yourself.",
       "floor": {
         "game": 0.3
-      }
+      },
+      "sigil": [
+        "  .-----.",
+        " ( ^ _ o )",
+        "  *-----*",
+        "   |   |"
+      ]
     },
     {
       "slug": "pro",
@@ -350,7 +386,13 @@
       ],
       "annoy": "GNOME will remove a feature you liked. There is an extension. There is always an extension.",
       "hardwareNone": "Framework Laptop 13 Pro or a Linux-certified ThinkPad. Warranty, docks, no surprises.",
-      "alt": "Ubuntu LTS, if your employer's tooling assumes it."
+      "alt": "Ubuntu LTS, if your employer's tooling assumes it.",
+      "sigil": [
+        "   ____",
+        "  |____|",
+        "  |    |",
+        "  |____|"
+      ]
     },
     {
       "slug": "monk",
@@ -401,7 +443,13 @@
       "alt": "Alpine, if even glibc feels indulgent.",
       "floor": {
         "term": 0.35
-      }
+      },
+      "sigil": [
+        "    )",
+        "   (",
+        "   ||",
+        "  |__|"
+      ]
     },
     {
       "slug": "declarative",
@@ -453,7 +501,13 @@
       "alt": "Guix, if you would rather declare your universe in Scheme.",
       "floor": {
         "term": 0.35
-      }
+      },
+      "sigil": [
+        "  \\\\ | /",
+        " --   --",
+        "  / | \\\\",
+        "   λ"
+      ]
     },
     {
       "slug": "necromancer",
@@ -503,7 +557,13 @@
       ],
       "annoy": "You will start rescuing other people's old laptops. Your shelf is not ready.",
       "hardwareNone": "You specifically do not buy hardware. Someone's closet already holds your next machine.",
-      "alt": "Debian + LXQt, if you want to go even lighter than Xfce."
+      "alt": "Debian + LXQt, if you want to go even lighter than Xfce.",
+      "sigil": [
+        "  .---.",
+        " | o o |",
+        " |  ^  |",
+        "  \\\\___/"
+      ]
     }
   ]
 }

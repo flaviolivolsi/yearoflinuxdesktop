@@ -1,0 +1,151 @@
+---
+// Press ~ anywhere. Yes, the website has a shell. You found it.
+---
+
+<div class="yold-shell" id="yold-shell" hidden role="dialog" aria-label="Fake terminal">
+  <div class="yold-shell-out" id="yold-shell-out"></div>
+  <div class="yold-shell-row">
+    <span class="ps1">you@yold:~$</span>
+    <input id="yold-shell-in" type="text" autocomplete="off" spellcheck="false" aria-label="Shell input" />
+  </div>
+</div>
+
+<script>
+  const shell = document.getElementById('yold-shell');
+  const out = document.getElementById('yold-shell-out');
+  const inp = document.getElementById('yold-shell-in');
+  let opened = false;
+
+  function print(text, cls) {
+    const div = document.createElement('div');
+    if (cls) div.className = cls;
+    div.textContent = text;
+    out.appendChild(div);
+    out.scrollTop = out.scrollHeight;
+  }
+
+  function open() {
+    shell.hidden = false;
+    if (!opened) {
+      opened = true;
+      print('yolsh 0.1 — the only shell with zero exploits because it has zero features.', 'dim');
+      print("type 'help' if you must.", 'dim');
+    }
+    inp.focus();
+  }
+
+  function close() {
+    shell.hidden = true;
+    inp.blur();
+  }
+
+  const THEME_NAMES = ['auto', 'light', 'dark', 'gruvbox', 'catppuccin', 'nord', 'tokyonight', 'dracula'];
+
+  const CMDS = {
+    help() {
+      print('ls  cat manifesto.md  ./find-your-linux  theme <name>  neofetch  whoami  sudo  clear  exit');
+    },
+    ls() {
+      print('manifesto/   quiz/   hardware/   source/   trackers/');
+      print('ls: trackers/: empty directory', 'dim');
+    },
+    whoami() {
+      print('someone who presses ~ on strange websites. correct instinct.');
+    },
+    neofetch() {
+      print(`   .--.      OS: yearoflinuxdesktop.com
+  |o_o |     Kernel: manifesto 1.0
+  |:_/ |     Shell: yolsh 0.1
+ //   \\ \\    DE: your browser
+(|     | )   Trackers: 0
+/'\\_   _/\`\\  Weight: ~__WEIGHT__ KB
+\\___)=(___/  Uptime: since you arrived`);
+    },
+    clear() {
+      out.innerHTML = '';
+    },
+    exit() {
+      close();
+    },
+    date() {
+      print(new Date().toString());
+    },
+    btw() {
+      print('I use the website btw.');
+    },
+  };
+
+  function run(raw) {
+    const line = raw.trim();
+    print(`you@yold:~$ ${line}`, 'acc');
+    if (!line) return;
+    const [cmd, ...args] = line.split(/\s+/);
+
+    if (cmd === 'sudo') {
+      print('you are not in the sudoers file. This incident will be reported to nobody; we do not track.');
+      return;
+    }
+    if (line === 'rm -rf /' || line.startsWith('rm ')) {
+      print('rm: some things you only get to break on your own machine. Go install Linux.');
+      return;
+    }
+    if (cmd === 'cat' && args[0] === 'manifesto.md') {
+      print('I started using Linux when I was 11.');
+      print('…');
+      print('(about ten more minutes of this. scrolling you there.)', 'dim');
+      setTimeout(() => {
+        close();
+        window.location.href = '/#manifesto';
+      }, 900);
+      return;
+    }
+    if (cmd === './find-your-linux' || cmd === 'find-your-linux') {
+      print('launching…', 'dim');
+      setTimeout(() => {
+        close();
+        window.location.href = '/#quiz';
+      }, 500);
+      return;
+    }
+    if (cmd === 'theme') {
+      const t = (args[0] || '').toLowerCase();
+      if (!t || !THEME_NAMES.includes(t)) {
+        print(`themes: ${THEME_NAMES.join('  ')}`);
+        return;
+      }
+      window.yoldSetTheme(t);
+      print(`rice applied: ${t}`, 'acc');
+      return;
+    }
+    if (cmd === 'echo') {
+      print(args.join(' '));
+      return;
+    }
+    if (CMDS[cmd]) {
+      CMDS[cmd]();
+      return;
+    }
+    print(`yolsh: ${cmd}: command not found (this shell is a bit, not a product)`, 'dim');
+  }
+
+  inp.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      run(inp.value);
+      inp.value = '';
+    } else if (e.key === 'Escape') {
+      close();
+    }
+    e.stopPropagation();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const tag = document.activeElement?.tagName;
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    if (e.key === '~' || e.key === '`') {
+      e.preventDefault();
+      shell.hidden ? open() : close();
+    } else if (e.key === 'Escape' && !shell.hidden) {
+      close();
+    }
+  });
+</script>

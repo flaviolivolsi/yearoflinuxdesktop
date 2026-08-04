@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "bun scripts/sanity.js && astro build",
+    "build": "bun scripts/sanity.js && astro build && bun scripts/weigh.js",
     "sanity": "bun scripts/sanity.js",
     "og": "bun scripts/og.js",
     "preview": "astro preview",

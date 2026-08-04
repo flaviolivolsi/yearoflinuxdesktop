@@ -32,6 +32,7 @@ const canonical = `https://yearoflinuxdesktop.com/r/${archetype.slug}/`;
           <span>{archetype.name.toLowerCase()}</span>
         </div>
         <div class="tui-body">
+          {archetype.sigil && <pre class="sigil" aria-hidden="true">{archetype.sigil.join('\n')}</pre>}
           <h1>{archetype.name}</h1>
           <p class="tagline">{archetype.tagline}</p>
           <dl class="spec" id="bp-rows">
@@ -51,6 +52,7 @@ const canonical = `https://yearoflinuxdesktop.com/r/${archetype.slug}/`;
 
       <div class="share-row">
         <button class="btn" id="share-result">[ copy link to this result ]</button>
+        <button class="btn" id="card-download">[ download your card ]</button>
       </div>
 
       <div class="prompt-block" id="prompt-block" hidden>
@@ -108,6 +110,85 @@ const canonical = `https://yearoflinuxdesktop.com/r/${archetype.slug}/`;
 
   const a = new URLSearchParams(window.location.search).get('a');
   const answers = decodeAnswers(a, questions.length);
+
+  // The card renders in whatever rice you are currently wearing.
+  const cardBtn = document.getElementById('card-download');
+  cardBtn.addEventListener('click', () => {
+    const css = getComputedStyle(document.documentElement);
+    const v = (name) => css.getPropertyValue(name).trim();
+    const W = 1200;
+    const H = 630;
+    const cv = document.createElement('canvas');
+    cv.width = W;
+    cv.height = H;
+    const ctx = cv.getContext('2d');
+    const mono = '"Cascadia Code", "JetBrains Mono", Menlo, monospace';
+    const serif = 'Georgia, serif';
+
+    ctx.fillStyle = v('--bg');
+    ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = v('--line');
+    ctx.lineWidth = 2;
+    ctx.strokeRect(16, 16, W - 32, H - 32);
+    ctx.fillStyle = v('--accent');
+    ctx.fillRect(16, 16, 6, H - 32);
+
+    ctx.fillStyle = v('--muted');
+    ctx.font = `22px ${mono}`;
+    ctx.fillText('YOUR LINUX ARCHETYPE', 64, 84);
+
+    if (archetype.sigil) {
+      ctx.fillStyle = v('--accent');
+      ctx.font = `20px ${mono}`;
+      archetype.sigil.forEach((line, i) => ctx.fillText(line, 950, 70 + i * 24));
+    }
+
+    ctx.fillStyle = v('--ink');
+    ctx.font = `bold 72px ${serif}`;
+    ctx.fillText(archetype.name, 60, 170);
+
+    ctx.fillStyle = v('--muted');
+    ctx.font = `26px ${mono}`;
+    // wrap tagline
+    const words = archetype.tagline.split(' ');
+    let line = '';
+    let y = 224;
+    for (const w of words) {
+      if (ctx.measureText(line + w).width > 1050) {
+        ctx.fillText(line, 60, y);
+        line = '';
+        y += 34;
+      }
+      line += w + ' ';
+    }
+    ctx.fillText(line.trim(), 60, y);
+    y += 56;
+
+    const rows = Array.from(document.querySelectorAll('#bp-rows > div'))
+      .map((d) => [d.querySelector('dt')?.textContent || '', d.querySelector('dd')?.textContent || ''])
+      .slice(0, 5);
+    ctx.font = `24px ${mono}`;
+    for (const [k, val] of rows) {
+      ctx.fillStyle = v('--muted');
+      ctx.fillText(k + ' ·', 60, y);
+      ctx.fillStyle = v('--ink');
+      ctx.fillText(val.length > 62 ? val.slice(0, 59) + '…' : val, 320, y);
+      y += 40;
+    }
+
+    ctx.fillStyle = v('--muted');
+    ctx.font = `20px ${mono}`;
+    ctx.fillText('not a horoscope. a blueprint.', 60, H - 52);
+    ctx.fillStyle = v('--accent');
+    ctx.fillText('$ yearoflinuxdesktop.com', W - 340, H - 52);
+
+    const link = document.createElement('a');
+    link.download = `yold-${slug}.png`;
+    link.href = cv.toDataURL('image/png');
+    link.click();
+    cardBtn.textContent = '[ saved ✓ ]';
+    setTimeout(() => (cardBtn.textContent = '[ download your card ]'), 2600);
+  });
 
   const shareBtn = document.getElementById('share-result');
   shareBtn.addEventListener('click', async () => {
