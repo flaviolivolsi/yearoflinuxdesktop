@@ -143,9 +143,14 @@ const canonical = `https://yearoflinuxdesktop.com${canonicalPath}`;
 
         btn.textContent = `rice: ${current()} ▾`;
         btn.addEventListener('click', () => toggleMenu());
-        document.addEventListener('click', (e) => {
-          if (!menu.hidden && !menu.contains(e.target) && e.target !== btn) toggleMenu(false);
+        // pointerdown, not click: iOS does not reliably deliver document
+        // clicks from taps on non-interactive areas.
+        document.addEventListener('pointerdown', (e) => {
+          if (!menu.hidden && !menu.contains(e.target) && !btn.contains(e.target)) toggleMenu(false);
         });
+        window.addEventListener('scroll', () => {
+          if (!menu.hidden) toggleMenu(false);
+        }, { passive: true });
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape' && !menu.hidden) toggleMenu(false);
         });
