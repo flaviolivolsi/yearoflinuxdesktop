@@ -3,15 +3,11 @@
 > It never arrives. It never will. It was never going to be a year on a calendar.
 > It arrives one person at a time.
 
-The site behind [yearoflinuxdesktop.com](https://yearoflinuxdesktop.com): a
+The site behind [yearoflinuxdesktop.org](https://yearoflinuxdesktop.org): a
 manifesto about why there has never been a better time to switch to Linux, and
 a quiz that doesn't tell you which distro you "are" but hands you a complete
 blueprint for your machine, plus a copy-paste prompt that makes an LLM walk you
 through the installation.
-
-**Status: live.** Currently at
-[yearoflinuxdesktop.vercel.app](https://yearoflinuxdesktop.vercel.app) while
-DNS catches up with ambition.
 
 ## What's inside
 

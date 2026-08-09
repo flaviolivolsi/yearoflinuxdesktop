@@ -17,7 +17,7 @@ const {
   ogImage,
 } = Astro.props;
 
-const canonical = `https://yearoflinuxdesktop.com${canonicalPath}`;
+const canonical = `https://yearoflinuxdesktop.org${canonicalPath}`;
 ---
 
 <html lang="en">
@@ -33,7 +33,7 @@ const canonical = `https://yearoflinuxdesktop.com${canonicalPath}`;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    {ogImage && <meta property="og:image" content={`https://yearoflinuxdesktop.com${ogImage}`} />}
+    {ogImage && <meta property="og:image" content={`https://yearoflinuxdesktop.org${ogImage}`} />}
     {ogImage && <meta name="twitter:card" content="summary_large_image" />}
     <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101310" />
     <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f5ef" />

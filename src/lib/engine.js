@@ -163,7 +163,7 @@ My situation:
 - Terminal skill: ${comfortLabel(axes)}
 - Still needed from Windows/macOS: ${ANCHOR_TEXT[gates.anchor] || 'not sure'}
 
-My blueprint (from yearoflinuxdesktop.com, archetype: ${archetype.name}):
+My blueprint (from yearoflinuxdesktop.org, archetype: ${archetype.name}):
 ${lines}
 
 Walk me through this one step at a time, in this order: back up my data, create the install USB, install the base system, then set up each blueprint piece. One step per message; wait for me to confirm before the next. If something breaks, debug it with me before moving on. I can paste terminal output and error messages to you.`;

@@ -37,7 +37,7 @@ function page({ eyebrow, title, sub, rows }) {
     <div class="sub">${sub}</div>
   </div>
   ${rows ? `<div class="rows">${rows}</div>` : ''}
-  <div class="foot"><span><b>$</b> yearoflinuxdesktop.com</span><span>not a horoscope. a blueprint.</span></div>
+  <div class="foot"><span><b>$</b> yearoflinuxdesktop.org</span><span>not a horoscope. a blueprint.</span></div>
   </body>`;
 }
 

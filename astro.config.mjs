@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yearoflinuxdesktop.com',
+  site: 'https://yearoflinuxdesktop.org',
   // Whitespace-collapsing kept eating the space between text and inline
   // links/expressions. The HTML is tiny; correctness beats minification.
   compressHTML: false,

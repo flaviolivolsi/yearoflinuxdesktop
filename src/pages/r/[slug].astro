@@ -13,7 +13,7 @@ export function getStaticPaths() {
 const { archetype } = Astro.props;
 const generic = personalize(archetype, {});
 const title = `${archetype.name} · The Year of the Linux Desktop`;
-const canonical = `https://yearoflinuxdesktop.com/r/${archetype.slug}/`;
+const canonical = `https://yearoflinuxdesktop.org/r/${archetype.slug}/`;
 ---
 
 <Base
@@ -180,7 +180,7 @@ const canonical = `https://yearoflinuxdesktop.com/r/${archetype.slug}/`;
     ctx.font = `20px ${mono}`;
     ctx.fillText('not a horoscope. a blueprint.', 60, H - 52);
     ctx.fillStyle = v('--accent');
-    ctx.fillText('$ yearoflinuxdesktop.com', W - 340, H - 52);
+    ctx.fillText('$ yearoflinuxdesktop.org', W - 340, H - 52);
 
     const link = document.createElement('a');
     link.download = `yold-${slug}.png`;
