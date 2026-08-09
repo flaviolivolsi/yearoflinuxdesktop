@@ -217,6 +217,7 @@ const canonical = `https://yearoflinuxdesktop.org/r/${archetype.slug}/`;
   }
 
   if (answers && archetype) {
+    try { window.goatcounter?.count({ path: `quiz-complete--${slug}`, event: true }); } catch {}
     const { axes, gates } = computeProfile(answers, questions);
     const { rows, annoy, notes } = personalize(archetype, gates);
 
