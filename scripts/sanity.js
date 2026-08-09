@@ -49,6 +49,7 @@ const floors = archetypes.map((a) => {
 });
 const slugIndex = Object.fromEntries(archetypes.map((a, i) => [a.slug, i]));
 const GAMER = slugIndex['gamer'];
+const ESCAPEE = slugIndex['escapee'];
 const QM = questions.findIndex((q) => q.id === 'machine');
 const QA = questions.findIndex((q) => q.id === 'anchor');
 const QT = questions.findIndex((q) => q.id === 'terminal');
@@ -75,6 +76,7 @@ function fastWinner() {
       for (const [ax, min] of floors[i]) if (axes[ax] < min) s -= 1;
     }
     if (answers[QA] === 3 && i === GAMER) s += 0.06;
+    if (answers[QM] === 2 && i === ESCAPEE) s += 0.06;
     if (s > bestScore) {
       bestScore = s;
       best = i;

@@ -1,6 +1,8 @@
 // The quiz engine. Deterministic, dependency-free, auditable.
 // Runs identically in the build sanity harness and in the browser.
 
+const GATE_BONUS = 0.06;
+
 /** Max attainable raw score per axis, given the question bank. */
 export function axisMaxima(questions) {
   const max = {};
@@ -47,7 +49,7 @@ export function scoreArchetype(axes, gates, archetype) {
     score += w * (1 - Math.abs((axes[axis] || 0) - target));
     totalWeight += w;
   }
-  score /= totalWeight;
+  score /= totalWeight || 1;
   // Hard floors: some stacks are never a fair prescription below a minimum
   // comfort level, no matter how well the vibes match.
   if (archetype.floor) {
@@ -56,7 +58,8 @@ export function scoreArchetype(axes, gates, archetype) {
     }
   }
   // Gate bonuses: hard facts should be able to outvote fuzzy vibes.
-  if (gates.anchor === 'anticheat' && archetype.slug === 'gamer') score += 0.06;
+  if (gates.anchor === 'anticheat' && archetype.slug === 'gamer') score += GATE_BONUS;
+  if (gates.machine === 'mac' && archetype.slug === 'escapee') score += GATE_BONUS;
   return score;
 }
 
