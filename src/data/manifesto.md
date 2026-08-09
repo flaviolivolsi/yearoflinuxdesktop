@@ -103,7 +103,7 @@ Then there is the newer generation of Linux environments that are not satisfied 
 
 Projects like [Omarchy](https://omarchy.org/) bring taste, coherence and ambition to a space that has too often acted as though visual design was an optional bourgeois distraction.
 
-I now use [Hyprland](https://hyprland.org).
+I now use Hyprland ([Omarchy](https://omarchy.org/)'s default), customized quite a bit.
 
 My computer does not feel like a collection of windows floating around a desktop. It feels like a system built around how I think.
 
